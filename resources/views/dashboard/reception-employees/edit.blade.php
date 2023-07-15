@@ -112,14 +112,14 @@
                         <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
                             <!--begin::Nav item-->
                             <li class="nav-item mt-2">
-                                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ Route::currentRouteName() == 'doctors.show' || Route::currentRouteName() == 'account.profile' ? 'active' : '' }}"
-                                    href="{{ Route::currentRouteName() == 'doctors.edit' || Route::currentRouteName() == 'doctors.show' ? route('doctors.show', $doctor) : route('account.profile') }}">{{__('admins.overview')}}</a>
+                                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ Route::currentRouteName() == 'employees.show' || Route::currentRouteName() == 'account.profile' ? 'active' : '' }}"
+                                    href="{{ Route::currentRouteName() == 'employees.edit' || Route::currentRouteName() == 'employees.show' ? route('employees.show', $doctor) : route('account.profile') }}">{{__('admins.overview')}}</a>
                             </li>
                             <!--end::Nav item-->
                             <!--begin::Nav item-->
                             <li class="nav-item mt-2">
-                                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ Route::currentRouteName() == 'doctors.edit' || Route::currentRouteName() == 'account.settings' ? 'active' : '' }}"
-                                    href="{{ Route::currentRouteName() == 'doctors.edit' || Route::currentRouteName() == 'doctors.show' ? route('doctors.edit', $doctor) : route('account.settings') }}">{{__('admins.settings')}}</a>
+                                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ Route::currentRouteName() == 'employees.edit' || Route::currentRouteName() == 'account.settings' ? 'active' : '' }}"
+                                    href="{{ Route::currentRouteName() == 'employees.edit' || Route::currentRouteName() == 'employees.show' ? route('employees.edit', $doctor) : route('account.settings') }}">{{__('admins.settings')}}</a>
                             </li>
                             <!--end::Nav item-->
                         </ul>
@@ -238,28 +238,7 @@
                                     </div>
                                     <!--end::Col-->
                                 </div>
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-bold fs-6">Specialty</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row">
-                                        <select id="specialty" name="user_specialty"
-                                            class="form-control form-control-solid">
-                                            <option value="{{ $doctor->specialty }}">
-                                                {{ $doctor->specialty }}</option>
-                                            <option value="Oncology">Oncology</option>
-                                            <option value="Radiation Oncology">Radiation Oncology
-                                            </option>
-                                            <option value="Surgical Oncology">Surgical Oncology
-                                            </option>
-                                            <option value="Pediatric Oncology">Pediatric Oncology
-                                            </option>
-                                            <option value="Hematology">Hematology</option>
-                                        </select>
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
+
                                 <!--end::Input group-->
                             </div>
                             <!--end::Card body-->
@@ -293,11 +272,10 @@
             formData.append('name', document.getElementById('name').value);
             formData.append('email', document.getElementById('email').value);
             formData.append('phone_number', document.getElementById('phone_number').value);
-            formData.append('specialty', document.getElementById('specialty').value);
 
-            let url = '{{ route('doctors.update', $doctor) }}';
+            let url = '{{ route('employees.update', $doctor) }}';
 
-            post(url, formData, 'submit-btn', '{{ route('doctors.edit', $doctor) }}');
+            post(url, formData, 'submit-btn', '{{ route('employees.edit', $doctor) }}');
         }
     </script>
 @endsection

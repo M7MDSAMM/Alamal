@@ -11,7 +11,7 @@ class ReceptionRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,9 @@ class ReceptionRequest extends FormRequest
     {
         return [
             //
+            'name' => 'required|string|max:255',
+            'phone_number' => 'required|numeric|digits_between:10,15',
+            'email' => 'required|email|max:255',
         ];
     }
 }

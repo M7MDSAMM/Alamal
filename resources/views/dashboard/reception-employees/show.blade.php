@@ -112,14 +112,14 @@
                         <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
                             <!--begin::Nav item-->
                             <li class="nav-item mt-2">
-                                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ Route::currentRouteName() == 'doctors.show' || Route::currentRouteName() == 'account.profile' ? 'active' : '' }}"
-                                    href="{{ Route::currentRouteName() == 'doctors.edit' || Route::currentRouteName() == 'doctors.show' ? route('doctors.show',$doctor) : route('account.profile') }}">{{__('admins.overview')}}</a>
+                                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ Route::currentRouteName() == 'employees.show' || Route::currentRouteName() == 'account.profile' ? 'active' : '' }}"
+                                    href="{{ Route::currentRouteName() == 'employees.edit' || Route::currentRouteName() == 'employees.show' ? route('employees.show',$doctor) : route('account.profile') }}">{{__('admins.overview')}}</a>
                             </li>
                             <!--end::Nav item-->
                             <!--begin::Nav item-->
                             <li class="nav-item mt-2">
                                 <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ Route::currentRouteName() == 'admins.edit' || Route::currentRouteName() == 'account.settings' ? 'active' : '' }}"
-                                    href="{{ Route::currentRouteName() == 'doctors.edit' || Route::currentRouteName() == 'doctors.show' ? route('doctors.edit',$doctor) : route('account.settings') }}">{{__('admins.settings')}}</a>
+                                    href="{{ Route::currentRouteName() == 'employees.edit' || Route::currentRouteName() == 'employees.show' ? route('employees.edit',$doctor) : route('account.settings') }}">{{__('admins.settings')}}</a>
                             </li>
                             <!--end::Nav item-->
                         </ul>

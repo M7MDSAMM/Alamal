@@ -142,29 +142,6 @@
                                                     </div>
                                                     <!--end::Input group-->
 
-                                                    <!--begin::Input group-->
-
-                                                    <!--end::Input group-->
-
-                                                    <!--begin::Input group-->
-                                                    <div class="fv-row mb-7">
-                                                        <!--begin::Label-->
-                                                        <label
-                                                            class="fw-bold fs-6 mb-2">{{ __('admins.specialty') }}</label>
-                                                        <!--end::Label-->
-                                                        <!--begin::Select-->
-                                                        <select id="specialty" name="user_specialty"
-                                                            class="form-control form-control-solid">
-                                                            <option value="">Select Specialty</option>
-                                                            <option value="Oncology">Oncology</option>
-                                                            <option value="Radiation Oncology">Radiation Oncology</option>
-                                                            <option value="Surgical Oncology">Surgical Oncology</option>
-                                                            <option value="Pediatric Oncology">Pediatric Oncology</option>
-                                                            <option value="Hematology">Hematology</option>
-                                                        </select>
-                                                        <!--end::Select-->
-                                                    </div>
-                                                    <!--end::Input group-->
 
                                                 </div>
                                                 <!--end::Scroll-->
@@ -283,27 +260,7 @@
                                                             <!--end::Input-->
                                                         </div>
 
-                                                        <div class="fv-row mb-7">
-                                                            <!--begin::Label-->
-                                                            <label
-                                                                class="fw-bold fs-6 mb-2">{{ __('admins.specialty') }}</label>
-                                                            <!--end::Label-->
-                                                            <!--begin::Select-->
-                                                            <select id="specialty_{{ $doctor->id }}" name="user_specialty"
-                                                                class="form-control form-control-solid">
-                                                                <option value="{{ $doctor->specialty }}">
-                                                                    {{ $doctor->specialty }}</option>
-                                                                <option value="Oncology">Oncology</option>
-                                                                <option value="Radiation Oncology">Radiation Oncology
-                                                                </option>
-                                                                <option value="Surgical Oncology">Surgical Oncology
-                                                                </option>
-                                                                <option value="Pediatric Oncology">Pediatric Oncology
-                                                                </option>
-                                                                <option value="Hematology">Hematology</option>
-                                                            </select>
-                                                            <!--end::Select-->
-                                                        </div>
+
                                                         <!--end::Input group-->
                                                     </div>
                                                     <!--end::Scroll-->
@@ -346,7 +303,6 @@
                                 <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                                     <th class="min-w-125px">#</th>
                                     <th class="min-w-125px">{{ __('admins.admin') }}</th>
-                                    <th class="min-w-125px">Specialty</th>
                                     <th class="min-w-125px">{{ __('admins.last_seen') }}</th>
                                     <th class="min-w-125px">{{ __('admins.join_date') }}</th>
                                     <th class="text-end min-w-100px">{{ __('admins.actions') }}</th>
@@ -368,7 +324,7 @@
                                         <td class="d-flex align-items-center">
                                             <!--begin:: Avatar -->
                                             <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                                <a href="{{ route('doctors.show', $doctor) }}">
+                                                <a href="{{ route('employees.show', $doctor) }}">
                                                     <div class="symbol-label">
                                                         @if ($doctor->image)
                                                             <img src="{{ Storage::url($doctor->image) }}" class="w-100">
@@ -381,14 +337,13 @@
                                             <!--end::Avatar-->
                                             <!--begin::User details-->
                                             <div class="d-flex flex-column">
-                                                <a href="{{ route('doctors.show', $doctor) }}"
+                                                <a href="{{ route('employees.show', $doctor) }}"
                                                     class="text-gray-800 text-hover-primary mb-1">{{ $doctor->name }}</a>
                                                 <span>{{ $doctor->email }}</span>
                                             </div>
                                             <!--begin::User details-->
                                         </td>
                                         <!--end::User=-->
-                                        <td>{{ $doctor->specialty }}</td>
 
                                         <!--begin::Last login=-->
                                         <td>
@@ -475,12 +430,11 @@
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 phone_number: document.getElementById('phone_number').value,
-                specialty: document.getElementById('specialty').value,
             }
-            let url = '{{ route('doctors.store') }}'
+            let url = '{{ route('employees.store') }}'
 
             //post(url, data, buttonId, redirectTo, formId)
-            post(url, data, 'submit-btn', '{{ route('doctors.index') }}', 'kt_modal_add_user_form')
+            post(url, data, 'submit-btn', '{{ route('employees.index') }}', 'kt_modal_add_user_form')
         }
 
 
@@ -534,7 +488,7 @@
 
 
         function delItem(id, ref) {
-            let url = `/dashboard/doctors/${id}`
+            let url = `/dashboard/reception/employees/${id}`
             deleteItem(url, ref, '{{ app()->getLocale() }}');
         }
 
@@ -543,10 +497,9 @@
                 name: document.getElementById(`name_${id}`).value,
                 email: document.getElementById(`email_${id}`).value,
                 phone_number: document.getElementById(`phone_number_${id}`).value,
-                specialty: document.getElementById(`specialty_${id}`).value
             }
 
-            let url = `/dashboard/doctors/${id}`;
+            let url = `/dashboard/reception/employees/${id}`;
 
             put(url, data, `submit-btn-${id}`, '{{ url()->current() }}');
         }

@@ -107,8 +107,8 @@
 
 
     <div class="menu-item">
-        <a class="menu-link {{ in_array(Route::currentRouteName(), ['doctors.create']) ? 'active' : '' }}"
-            href="{{ route('doctors.index') }}">
+        <a class="menu-link {{ in_array(Route::currentRouteName(), ['employees.index']) ? 'active' : '' }}"
+            href="{{ route('employees.index') }}">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
                 <span class="svg-icon svg-icon-2">
