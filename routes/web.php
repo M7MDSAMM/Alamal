@@ -1,0 +1,108 @@
+<?php
+
+use App\Http\Controllers\Auth\AccountController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Dashboard\AdminController;
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\SettingController;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\DoctorManagerController;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+
+Route::view('/test', 'dashboard.temp');
+
+Route::redirect("/", 'login', 301);
+
+Route::middleware('guest')->group(function () {
+    Route::prefix('/login')->controller(LoginController::class)->group(function () {
+        Route::get('/', 'showLogin')->name('login');
+        Route::post('/', 'login')->name('login.post');
+    });
+
+    Route::controller(ResetPasswordController::class)->group(function () {
+        Route::get('/forgot-password/{broker}', 'showForgotPassword')->name('password.request');
+        Route::post('/forgot-password/{broker}', 'forgotPassword')->name('password.email');
+        Route::get('/reset-password/{token}/{broker}', 'showResetPassword')->name('password.reset');
+        Route::post('/reset-password/{broker}', 'resetPassword')->name('password.update');
+    });
+});
+
+Route::middleware(['auth', 'locale'])->prefix('/dashboard')->group(function () {
+    // Route::middleware('auth')->prefix('/dashboard')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+
+    Route::resource('doctor/managers',DoctorManagerController::class);
+    Route::resource('doctors',DoctorController::class);
+    Route::resource('admins', AdminController::class)->except(['create']);
+
+    Route::prefix('/account')->controller(AccountController::class)->group(function () {
+        Route::get('/', 'profile')->name('account.profile');
+        Route::get('/settings', 'settings')->name('account.settings');
+        Route::put('/settings', 'saveSettings')->name('account.save-settings');
+        Route::put('/change-email', 'changeEmail')->name('account.change-email');
+        Route::put('/change-password', 'changePassword')->name('account.change-password');
+    });
+
+    Route::prefix('/settings')->controller(SettingController::class)->group(function () {
+        Route::get('/', 'general')->name('settings.general');
+        Route::post('/', 'update')->name('settings.update');
+    });
+
+    Route::get('/language/{locale}', [DashboardController::class, 'changeLocale'])->name('dashboard.locale');
+
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+});
+
+
+Route::get('/zoom', function () {
+
+    //GENERATING ACCESS TOKEN
+    $response = Http::withHeaders([
+        'Host' => 'zoom.us',
+        'Authorization' => 'Basic ' . base64_encode(env('ZOOM_CLIENT_ID') . ':' . env('ZOOM_CLIENT_SECRET'))
+    ])->post('https://zoom.us/oauth/token?grant_type=account_credentials&account_id=' . env('ZOOM_ACCOUNT_ID'));
+    $jsonResponse = json_decode($response->body());
+    $accessToken = $jsonResponse->access_token;
+
+    //CREATING A ZOOM MEETING
+    $details = [
+        "topic" => "The title of your Zoom meeting",
+        "type" => 2,
+        "start_time" => "2023-06-22T10:21:57",
+        "duration" => "45",
+        "timezone" => "Europe/Madrid",
+        "agenda" => "test",
+        "recurrence" => [
+            "type" => 1,
+            "repeat_interval" => 1
+        ],
+        "settings" => [
+            "host_video" => "true",
+            "participant_video" => "true",
+            "join_before_host" => "False",
+            "mute_upon_entry" => "False",
+            "watermark" => "true",
+            "audio" => "voip",
+            "auto_recording" => "cloud"
+        ]
+    ];
+    $response = Http::withHeaders([
+        'content-type' => 'application/json',
+        'Authorization' => 'Bearer ' . $accessToken,
+    ])->post('https://api.zoom.us/v2/users/me/meetings', $details);
+    dd(json_decode($response->body()));
+});
