@@ -44,7 +44,7 @@
                                         <div class="mb-3">
                                             <label for="patient_file" class="form-label">Patient File</label>
                                             <input type="file" class="form-control" id="patient_file" name="patient_file"
-                                                accept=".pdf, .doc, .docx, .txt" required>
+                                                accept=".pdf" required>
                                         </div>
                                     </div>
                                 </div>

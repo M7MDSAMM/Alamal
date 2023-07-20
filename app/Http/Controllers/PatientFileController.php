@@ -16,7 +16,8 @@ class PatientFileController extends Controller
     public function index()
     {
         //
-
+        $files = PatientFile::paginate(10);
+        return response()->view('dashboard.patient_files.index',compact('files'));
     }
 
     /**

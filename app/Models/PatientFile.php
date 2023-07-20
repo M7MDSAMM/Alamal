@@ -14,4 +14,8 @@ class PatientFile extends Model
         'type',
         'patient_id',
     ];
+
+    public function patient(){
+        return $this->belongsTo(User::class,'patient_id','id');
+    }
 }

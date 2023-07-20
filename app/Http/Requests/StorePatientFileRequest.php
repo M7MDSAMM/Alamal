@@ -23,7 +23,7 @@ class StorePatientFileRequest extends FormRequest
     {
         return [
             //
-            'patient_file' => 'required|file|mimes:pdf,doc,docx|max:2048',
+            'patient_file' => 'required|file|mimes:pdf|max:2048',
             'type' => 'required|string|max:50',
             'patient_id' => 'required|exists:users,id',
         ];
