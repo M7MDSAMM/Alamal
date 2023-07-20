@@ -8,6 +8,8 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\DoctorManagerController;
+use App\Http\Controllers\PatientController;
+use App\Http\Controllers\PatientFileController;
 use App\Http\Controllers\ReceptionController;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +51,8 @@ Route::middleware(['auth', 'locale'])->prefix('/dashboard')->group(function () {
     Route::resource('reception/employees',ReceptionController::class);
     Route::resource('doctor/managers',DoctorManagerController::class);
     Route::resource('doctors',DoctorController::class);
+    Route::resource('patient/files',PatientFileController::class);
+    Route::resource('patients',PatientController::class);
     Route::resource('admins', AdminController::class)->except(['create']);
 
     Route::prefix('/account')->controller(AccountController::class)->group(function () {
