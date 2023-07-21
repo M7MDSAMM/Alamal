@@ -1,4 +1,4 @@
-@extends('dashboard.parent')
+@extends('users.parent')
 @section('title', 'Doctors')
 
 @section('styles')
@@ -145,7 +145,6 @@
                                 <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                                     <th class="min-w-125px">#</th>
                                     <th class="min-w-125px">File Type</th>
-                                    <th class="min-w-125px">Patient</th>
                                     <th class="min-w-125px">Added At</th>
                                     <th class="min-w-130px">{{ __('admins.actions') }}</th>
                                 </tr>
@@ -174,7 +173,6 @@
                                             <!--begin::User details-->
                                         </td>
                                         <!--end::User=-->
-                                        <td>{{ $file->patient->name }}</td>
 
                                         <!--begin::Joined-->
 

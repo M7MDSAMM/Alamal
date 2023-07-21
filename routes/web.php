@@ -8,9 +8,12 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\DoctorManagerController;
+use App\Http\Controllers\PatientAppoinmentController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PatientFileController;
 use App\Http\Controllers\ReceptionController;
+use App\Http\Controllers\User\Auth\UserLoginController;
+use App\Http\Controllers\User\Dashboard\PatientDashboardController;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +39,11 @@ Route::middleware('guest')->group(function () {
         Route::post('/', 'login')->name('login.post');
     });
 
+    Route::prefix('/patient/login')->controller(UserLoginController::class)->group(function () {
+        Route::get('/', 'showLogin')->name('patients.login');
+        Route::post('/', 'login')->name('patients.login.post');
+    });
+
     Route::controller(ResetPasswordController::class)->group(function () {
         Route::get('/forgot-password/{broker}', 'showForgotPassword')->name('password.request');
         Route::post('/forgot-password/{broker}', 'forgotPassword')->name('password.email');
@@ -51,6 +59,7 @@ Route::middleware(['auth', 'locale'])->prefix('/dashboard')->group(function () {
     Route::resource('reception/employees',ReceptionController::class);
     Route::resource('doctor/managers',DoctorManagerController::class);
     Route::resource('doctors',DoctorController::class);
+    Route::resource('patient/appoinments',PatientAppoinmentController::class);
     Route::resource('patient/files',PatientFileController::class);
     Route::resource('patients',PatientController::class);
     Route::resource('admins', AdminController::class)->except(['create']);
@@ -72,6 +81,18 @@ Route::middleware(['auth', 'locale'])->prefix('/dashboard')->group(function () {
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });
+
+
+Route::middleware(['auth:user', 'locale'])->prefix('/patient/dashboard')->group(function () {
+    // Route::middleware('auth')->prefix('/dashboard')->group(function () {
+    Route::get('/', [PatientDashboardController::class, 'index'])->name('patients.index');
+    Route::get('/files', [PatientDashboardController::class, 'files'])->name('files.index');
+    Route::get('/appoinments', [PatientDashboardController::class, 'appoinments'])->name('appoinments.index');
+    Route::get('/urgents/create', [PatientDashboardController::class, 'createUrgent'])->name('urgents.create');
+    Route::get('/urgents', [PatientDashboardController::class, 'urgents'])->name('urgents.index');
+    Route::post('/urgents', [PatientDashboardController::class, 'storeUrgent'])->name('urgents.store');
+});
+
 
 
 Route::get('/zoom', function () {

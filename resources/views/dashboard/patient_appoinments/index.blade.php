@@ -3,43 +3,7 @@
 
 @section('styles')
 
-    <style>
-        .iframe {
-            width: 100%;
-            /* Make the iframe take the full width of its container */
-            height: 70vh;
-            /* Set the height of the iframe to 70% of the viewport height */
-            border: none;
-            /* Optional: Remove the iframe border */
-        }
 
-        /* Custom styles for the modal */
-        .modal-dialog {
-            max-width: 60%;
-            /* Adjust the width as needed */
-            margin: 1.75rem auto;
-            /* Center the modal on the screen */
-        }
-
-        .modal-content {
-            width: 100%;
-            /* Make the modal content take the full width */
-        }
-
-        .modal-header {
-            padding: 1rem 2rem;
-            /* Add padding to the header for a better look */
-        }
-
-        .modal-body {
-            padding: 2rem;
-            /* Add padding to the body for a better look */
-            max-height: 80vh;
-            /* Limit the height of the body to 80% of the viewport height */
-        }
-
-        /* Optional: Customize other parts of the modal as needed */
-    </style>
 @endsection
 
 @section('content')
@@ -89,45 +53,6 @@
                             </div>
                             <!--end::Toolbar-->
                             <!--begin::Modal - Add task-->
-                            @foreach ($files as $file)
-                                <div class="modal fade" id="kt_modal_preview_{{ $file->id }}" tabindex="-1"
-                                    aria-hidden="true">
-                                    <!--begin::Modal dialog-->
-                                    <div class="modal-dialog modal-dialog-centered mw-1050px">
-                                        <!--begin::Modal content-->
-                                        <div class="modal-content">
-                                            <!--begin::Modal header-->
-                                            <div class="modal-header" id="kt_modal_add_user_header">
-                                                <!--begin::Modal title-->
-                                                <h2 class="fw-bolder">Preview File</h2>
-                                                <!--end::Modal title-->
-                                                <!--begin::Close-->
-                                                <div class="btn btn-icon btn-sm btn-active-icon-primary"
-                                                    data-kt-users-modal-action="close">
-                                                    <!--begin::Svg Icon-->
-                                                    <span class="svg-icon svg-icon-1">
-                                                        <!-- SVG icon code -->
-                                                    </span>
-                                                    <!--end::Svg Icon-->
-                                                </div>
-                                                <!--end::Close-->
-                                            </div>
-                                            <!--end::Modal header-->
-                                            <!--begin::Modal body-->
-                                            <div class="modal-body scroll-y mx-10 mx-xl-20 my-7">
-                                                <!--begin::Iframe-->
-                                                <iframe src="http://127.0.0.1:8000/{{ $file->file }}"
-                                                    class="iframe"></iframe>
-
-                                                <!--end::Iframe-->
-                                            </div>
-                                            <!--end::Modal body-->
-                                        </div>
-                                        <!--end::Modal content-->
-                                    </div>
-                                    <!--end::Modal dialog-->
-                                </div>
-                            @endforeach
 
 
                             <!--end::Modal - Add task-->
@@ -144,8 +69,11 @@
                                 <!--begin::Table row-->
                                 <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                                     <th class="min-w-125px">#</th>
-                                    <th class="min-w-125px">File Type</th>
+                                    <th class="min-w-125px">Appoinment Day</th>
+                                    <th class="min-w-125px">Appoinment Date</th>
+                                    <th class="min-w-125px">Appoinment Time</th>
                                     <th class="min-w-125px">Patient</th>
+                                    <th class="min-w-125px">Doctor</th>
                                     <th class="min-w-125px">Added At</th>
                                     <th class="min-w-130px">{{ __('admins.actions') }}</th>
                                 </tr>
@@ -154,7 +82,7 @@
                             <!--end::Table head-->
                             <!--begin::Table body-->
                             <tbody class="text-gray-600 fw-bold">
-                                @foreach ($files as $file)
+                                @foreach ($appoinments as $appoinment)
                                     <!--begin::Table row-->
                                     <tr>
                                         <!--begin::Checkbox-->
@@ -169,16 +97,19 @@
                                             <!--end::Avatar-->
                                             <!--begin::User details-->
                                             <div class="d-flex flex-column">
-                                                {{ $file->type }}
+                                                {{ date('l', strtotime($appoinment->appointment_date)) }}
                                             </div>
                                             <!--begin::User details-->
                                         </td>
                                         <!--end::User=-->
-                                        <td>{{ $file->patient->name }}</td>
+                                        <td>{{ $appoinment->appointment_date }}</td>
+                                        <td>{{ $appoinment->appointment_time }}</td>
+                                        <td>{{ $appoinment->patient->name }}</td>
+                                        <td>{{ $appoinment->doctor->name }}</td>
 
                                         <!--begin::Joined-->
 
-                                        <td>{{ $file->created_at->format('Y-m-d h:i a') }}</td>
+                                        <td>{{ $appoinment->created_at->format('Y-m-d h:i a') }}</td>
                                         <!--begin::Joined-->
                                         <!--begin::Action=-->
                                         <td>
@@ -201,9 +132,7 @@
                                                 data-kt-menu="true">
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item px-3">
-                                                    <a data-bs-toggle="modal"
-                                                        data-bs-target="#kt_modal_preview_{{ $file->id }}"
-                                                        class="menu-link px-3">Preview</a>
+                                                    <a onclick="delItem({{ $appoinment->id }},this)" class="menu-link px-3">Delete</a>
                                                 </div>
                                                 <!--end::Menu item-->
                                                 <!--begin::Menu item-->
@@ -221,7 +150,7 @@
                             <!--end::Table body-->
                         </table>
                         <div class="d-flex flex-stack flex-wrap pt-10">
-                            {{ $files->links() }}
+                            {{ $appoinments->links() }}
                         </div>
                         <!--end::Table-->
                     </div>
@@ -236,5 +165,10 @@
 @endsection
 
 @section('scripts')
-
+<script>
+       function delItem(id, ref) {
+            let url = `/dashboard/patient/appoinments/${id}`
+            deleteItem(url, ref, '{{ app()->getLocale() }}');
+        }
+</script>
 @endsection
