@@ -136,7 +136,7 @@
                                             <div class="menu-sub menu-sub-dropdown w-175px py-4">
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item px-3">
-                                                    <a href="{{ route('dashboard.locale', 'en') }}"
+                                                    <a href="{{ route('users.locale', 'en') }}"
                                                         class="menu-link d-flex px-5 {{ app()->isLocale('en') ? 'active' : '' }}">
                                                         <span class="symbol symbol-20px me-4">
                                                             <img class="rounded-1"
@@ -147,7 +147,7 @@
                                                 <!--end::Menu item-->
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item px-3">
-                                                    <a href="{{ route('dashboard.locale', 'ar') }}"
+                                                    <a href="{{ route('users.locale', 'ar') }}"
                                                         class="menu-link d-flex px-5 {{ app()->isLocale('ar') ? 'active' : '' }}">
                                                         <span class="symbol symbol-20px me-4">
                                                             <img class="rounded-1"
@@ -168,7 +168,7 @@
                                         <!--end::Menu item-->
                                         <!--begin::Menu item-->
                                         <div class="menu-item px-5">
-                                            <a href="{{ route('logout') }}"
+                                            <a href="{{ route('users.logout') }}"
                                                 class="menu-link px-5">{{ __('navbar.signout') }}</a>
                                         </div>
                                         <!--end::Menu item-->

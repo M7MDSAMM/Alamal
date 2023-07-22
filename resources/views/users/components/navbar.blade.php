@@ -1,8 +1,8 @@
 <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500"
     id="#kt_aside_menu" data-kt-menu="true">
     <div class="menu-item">
-        <a class="menu-link {{ in_array(Route::currentRouteName(), ['patients.index']) ? 'active' : '' }}"
-            href="{{ route('patients.index') }}">
+        <a class="menu-link {{ in_array(Route::currentRouteName(), ['users.patients.index']) ? 'active' : '' }}"
+            href="{{ route('users.patients.index') }}">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
                 <span class="svg-icon svg-icon-2">
@@ -31,8 +31,8 @@
     </div>
 
     <div class="menu-item">
-        <a class="menu-link {{ in_array(Route::currentRouteName(), ['files.index']) ? 'active' : '' }}"
-            href="{{ route('files.index') }}">
+        <a class="menu-link {{ in_array(Route::currentRouteName(), ['users.files.index']) ? 'active' : '' }}"
+            href="{{ route('users.files.index') }}">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
                 <span class="svg-icon svg-icon-2">
@@ -62,8 +62,8 @@
     </div>
 
     <div class="menu-item">
-        <a class="menu-link {{ in_array(Route::currentRouteName(), ['appoinments.index']) ? 'active' : '' }}"
-            href="{{ route('appoinments.index') }}">
+        <a class="menu-link {{ in_array(Route::currentRouteName(), ['users.appoinments.index']) ? 'active' : '' }}"
+            href="{{ route('users.appoinments.index') }}">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
                 <span class="svg-icon svg-icon-2">
@@ -87,8 +87,8 @@
     </div>
 
     <div class="menu-item">
-        <a class="menu-link {{ in_array(Route::currentRouteName(), ['urgents.index']) ? 'active' : '' }}"
-            href="{{ route('urgents.index') }}">
+        <a class="menu-link {{ in_array(Route::currentRouteName(), ['users.urgents.index']) ? 'active' : '' }}"
+            href="{{ route('users.urgents.index') }}">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
                 <span class="svg-icon svg-icon-2">
@@ -112,8 +112,8 @@
     </div>
 
     <div class="menu-item">
-        <a class="menu-link {{ in_array(Route::currentRouteName(), ['urgents.create']) ? 'active' : '' }}"
-            href="{{ route('urgents.create') }}">
+        <a class="menu-link {{ in_array(Route::currentRouteName(), ['users.urgents.create']) ? 'active' : '' }}"
+            href="{{ route('users.urgents.create') }}">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
                 <span class="svg-icon svg-icon-2">
@@ -144,8 +144,8 @@
     </div>
 
     <div class="menu-item">
-        <a class="menu-link {{ in_array(Route::currentRouteName(), ['appoinments.index']) ? 'active' : '' }}"
-            href="{{ route('appoinments.index') }}">
+        <a class="menu-link {{ in_array(Route::currentRouteName(), ['users.consultations']) ? 'active' : '' }}"
+            href="{{ route('users.consultations') }}">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
                 <span class="svg-icon svg-icon-2">
@@ -168,8 +168,8 @@
         </a>
     </div>
     <div class="menu-item">
-        <a class="menu-link {{ in_array(Route::currentRouteName(), ['appoinments.index']) ? 'active' : '' }}"
-            href="{{ route('appoinments.index') }}">
+        <a class="menu-link {{ in_array(Route::currentRouteName(), ['users.consultation.create']) ? 'active' : '' }}"
+            href="{{ route('users.consultation.create') }}">
             <span class="menu-icon">
                 <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
                 <span class="svg-icon svg-icon-2">

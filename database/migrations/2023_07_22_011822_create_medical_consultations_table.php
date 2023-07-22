@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('medical_consultations', function (Blueprint $table) {
             $table->id();
+            $table->longText('message');
+            $table->string('file')->nullable();
+            $table->longText('reply_message');
+            $table->string('reply_file')->nullable();
+            $table->foreignId('patient_id');
+            $table->foreign('patient_id')->references('id')->on('users');
+            $table->foreignId('doctor_id');
+            $table->foreign('doctor_id')->references('id')->on('admins');
             $table->timestamps();
         });
     }

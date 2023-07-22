@@ -85,12 +85,22 @@ Route::middleware(['auth', 'locale'])->prefix('/dashboard')->group(function () {
 
 Route::middleware(['auth:user', 'locale'])->prefix('/patient/dashboard')->group(function () {
     // Route::middleware('auth')->prefix('/dashboard')->group(function () {
-    Route::get('/', [PatientDashboardController::class, 'index'])->name('patients.index');
-    Route::get('/files', [PatientDashboardController::class, 'files'])->name('files.index');
-    Route::get('/appoinments', [PatientDashboardController::class, 'appoinments'])->name('appoinments.index');
-    Route::get('/urgents/create', [PatientDashboardController::class, 'createUrgent'])->name('urgents.create');
-    Route::get('/urgents', [PatientDashboardController::class, 'urgents'])->name('urgents.index');
-    Route::post('/urgents', [PatientDashboardController::class, 'storeUrgent'])->name('urgents.store');
+    Route::get('/', [PatientDashboardController::class, 'index'])->name('users.patients.index');
+    Route::get('/files', [PatientDashboardController::class, 'files'])->name('users.files.index');
+    Route::get('/appoinments', [PatientDashboardController::class, 'appoinments'])->name('users.appoinments.index');
+    Route::get('/urgents/create', [PatientDashboardController::class, 'createUrgent'])->name('users.urgents.create');
+    Route::get('/urgents', [PatientDashboardController::class, 'urgents'])->name('users.urgents.index');
+    Route::post('/urgents', [PatientDashboardController::class, 'storeUrgent'])->name('users.urgents.store');
+    Route::get('/consultations', [PatientDashboardController::class, 'consultations'])->name('users.consultations');
+    Route::post('/consultations', [PatientDashboardController::class, 'storeConsultations'])->name('users.consultations.store');
+    Route::get('/consultation/create', [PatientDashboardController::class, 'createConsultation'])->name('users.consultation.create');
+
+
+    Route::get('/language/{locale}', [DashboardController::class, 'changeLocale'])->name('users.locale');
+
+
+    Route::get('/logout', [UserLoginController::class, 'logout'])->name('users.logout');
+
 });
 
 

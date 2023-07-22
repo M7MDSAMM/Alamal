@@ -24,8 +24,16 @@
 
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                            <label for="reason" class="form-label">Appoinment Reason</label>
-                                            <input type="text" class="form-control" id="reason" name="reason"
+                                            <label for="message" class="form-label">Appoinment Reason</label>
+                                            <textarea class="form-control" id="message" name="message" required></textarea>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label for="file" class="form-label">Appoinment Reason</label>
+                                            <input type="file" class="form-control" id="file" name="file"
                                                 required>
                                         </div>
 
@@ -53,12 +61,16 @@
     <script>
 
         function performCreate() {
+            // console.log(document.getElementById('message').value)
             let formData = new FormData();
 
-            formData.append('reason', document.getElementById('reason').value);
-            let url = '{{ route('users.urgents.store') }}';
+            formData.append('message', document.getElementById('message').value);
+            if (document.getElementById('file').files.length > 0) {
+                formData.append('file', document.getElementById('file').files[0]);
+            }
+            let url = '{{ route('users.consultations.store') }}';
             // console.log(formData);
-            post(url, formData, 'submit-btn', '{{ route('users.urgents.index') }}');
+            post(url, formData, 'submit-btn', '{{ route('users.consultations') }}');
         }
     </script>
 

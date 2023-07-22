@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\User\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreConsultationRequest;
 use App\Http\Requests\StoreUrgentRequest;
+use App\Models\MedicalConsultation;
 use App\Models\PatientAppoinment;
 use App\Models\PatientFile;
 use Illuminate\Http\Request;
@@ -67,5 +69,36 @@ class PatientDashboardController extends Controller
 
         Session::put('locale', $locale);
         return redirect()->back();
+    }
+
+    public function consultations(){
+        $consultations = MedicalConsultation::where('patient_id',auth()->user()->id)->paginate(10);
+
+        return response()->view('users.consultations.index',compact('consultations'));
+    }
+
+    public function storeConsultations(StoreConsultationRequest $request){
+
+        $consultation = new MedicalConsultation();
+        $consultation->message = $request->validated('message');
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $fileName = time() . '_' . auth()->user()->id . '_' . rand(1, 1000000) . '.' . $file->getClientOriginalExtension();
+            $patient_file = $file->move('files/consultations', $fileName, ['disk' => 'public']);
+            $consultation->file = $fileName;
+        }
+        $consultation->patient_id = auth()->user()->id;
+        $consultation->doctor_id = auth()->user()->doctor_id;
+        $isSaved = $consultation->save();
+
+        return response()->json([
+            'message' => $isSaved ? 'Consultation Requested Successfully' : 'Failed To Request Consultation'
+        ], $isSaved ? Response::HTTP_CREATED : Response::HTTP_BAD_REQUEST);
+
+    }
+
+
+    public function createConsultation(){
+        return response()->view('users.consultations.create');
     }
 }

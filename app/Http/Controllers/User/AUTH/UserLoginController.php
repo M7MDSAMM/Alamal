@@ -28,6 +28,6 @@ class UserLoginController extends Controller
     {
         Auth::guard('user')->logout();
         $request->session()->invalidate();
-        return redirect('/');
+        return redirect('/patient/login');
     }
 }

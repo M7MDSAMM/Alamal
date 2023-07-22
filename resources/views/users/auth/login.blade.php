@@ -118,7 +118,7 @@
                     title: response.data.message,
                 });
                 setTimeout(() => {
-                    window.location.href = '{{route('dashboard.index')}}'
+                    window.location.href = '{{route('users.patients.index')}}'
                 }, 1000);
             }).catch((error) => {
                 Toast.fire({
