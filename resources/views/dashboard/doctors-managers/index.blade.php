@@ -32,7 +32,7 @@
                                 <!--end::Svg Icon-->
                                 <input type="text" data-kt-user-table-filter="search" value="{{ request()->search }}"
                                     name="search" class="form-control form-control-solid w-350px ps-14"
-                                    placeholder="{{ __('admins.search') }}" />
+                                    placeholder="Search Doctor Mangaer" />
                                 @if (request()->search)
                                     <a href="{{ route('doctors.index') }}"
                                         class="btn btn-primary">{{ __('admins.clear') }}</a>
@@ -58,7 +58,7 @@
                                                 fill="black" />
                                         </svg>
                                     </span>
-                                    <!--end::Svg Icon-->{{ __('admins.add') }}
+                                    <!--end::Svg Icon-->Add Doctor Manager
                                 </button>
                                 <!--end::Add user-->
                             </div>
@@ -308,7 +308,7 @@
                                 <!--begin::Table row-->
                                 <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                                     <th class="min-w-125px">#</th>
-                                    <th class="min-w-125px">{{ __('admins.admin') }}</th>
+                                    <th class="min-w-125px">Doctor Manager</th>
                                     <th class="min-w-125px">{{ __('admins.last_seen') }}</th>
                                     <th class="min-w-125px">{{ __('admins.join_date') }}</th>
                                     <th class="text-end min-w-100px">{{ __('admins.actions') }}</th>

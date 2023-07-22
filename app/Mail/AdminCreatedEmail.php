@@ -31,7 +31,7 @@ class AdminCreatedEmail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Welcome ' . $this->name . ' to AlAmal',
+            subject: 'Welcome ' . $this->name . ' to COMPANY_NAME',
         );
     }
 

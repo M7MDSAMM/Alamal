@@ -17,7 +17,10 @@ class PatientDashboardController extends Controller
     //
     public function index()
     {
-        return response()->view('users.index');
+        $appoinments = PatientAppoinment::where('patient_id',auth()->user()->id) ->orderBy('created_at', 'desc')
+        ->take(5)
+        ->get();
+        return response()->view('users.index',compact('appoinments'));
     }
 
     public function files()

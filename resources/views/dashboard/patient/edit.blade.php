@@ -13,7 +13,7 @@
             <div id="kt_content_container" class="container-xxl" style="max-width: 1800px">
                 <div class="card">
                     <div class="card-header border-0 pt-6">
-                        <h2>Add New Patient</h2>
+                        <h2>Edit Patient</h2>
                     </div>
                     <div class="card-toolbar">
 

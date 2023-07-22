@@ -70,7 +70,7 @@
                                 <!--end::Svg Icon-->
                                 <input type="text" data-kt-user-table-filter="search" value="{{ request()->search }}"
                                     name="search" class="form-control form-control-solid w-350px ps-14"
-                                    placeholder="{{ __('admins.search') }}" />
+                                    placeholder="Search Patients Files" />
                                 @if (request()->search)
                                     <a href="{{ route('doctors.index') }}"
                                         class="btn btn-primary">{{ __('admins.clear') }}</a>

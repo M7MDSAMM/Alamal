@@ -116,7 +116,7 @@
 
 
                                         </td>
-                                        <td>{{ $appoinment->doctor->name }}</td>
+                                        <td>{{ auth()->user()->doctor->name }}</td>
 
                                         <!--begin::Joined-->
 

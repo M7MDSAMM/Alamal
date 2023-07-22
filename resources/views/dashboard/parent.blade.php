@@ -329,7 +329,7 @@
                         <div class="text-dark order-2 order-md-1">
                             <span class="text-muted fw-bold me-1">2018 - {{ now()->year + 1 }}©</span>
                             <a href="#" target="_blank"
-                                class="text-gray-800 text-hover-primary">AlAmal</a>
+                                class="text-gray-800 text-hover-primary">COMPANY_NAME</a>
                         </div>
                         <!--end::Copyright-->
                         <!--begin::Menu-->

@@ -32,7 +32,7 @@
                                 <!--end::Svg Icon-->
                                 <input type="text" data-kt-user-table-filter="search" value="{{ request()->search }}"
                                     name="search" class="form-control form-control-solid w-350px ps-14"
-                                    placeholder="{{ __('admins.search') }}" />
+                                    placeholder="Search Patient" />
                                 @if (request()->search)
                                     <a href="{{ route('patients.index') }}"
                                         class="btn btn-primary">{{ __('admins.clear') }}</a>
@@ -58,7 +58,7 @@
                                                 fill="black" />
                                         </svg>
                                     </span>
-                                    <!--end::Svg Icon-->{{ __('admins.add') }}
+                                    <!--end::Svg Icon-->Add Patient
                                 </a>
                                 <!--end::Add user-->
                             </div>
@@ -75,7 +75,7 @@
                                 <!--begin::Table row-->
                                 <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                                     <th class="min-w-125px">#</th>
-                                    <th class="min-w-125px">{{ __('admins.admin') }}</th>
+                                    <th class="min-w-125px">Patient</th>
                                     <th class="min-w-125px">Gender</th>
                                     <th class="min-w-125px">Age</th>
                                     <th class="min-w-125px">Degrees of Severity</th>
@@ -126,9 +126,9 @@
                                         <td>{{ $patient->age }} Years</td>
 
                                         <td>
-                                            @if ($patient->degrees_of_severityr == 'Mild')
+                                            @if ($patient->degrees_of_severity == 'Mild')
                                                 <div class="badge badge-success fw-bolder">
-                                                    {{ $patient->gender }}
+                                                    {{ $patient->degrees_of_severity }}
                                                 </div>
                                             @elseif($patient->degrees_of_severity == 'Moderate')
                                                 <div class="badge badge-warning fw-bolder">

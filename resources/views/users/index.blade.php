@@ -22,58 +22,19 @@
                                     <!--begin::Info-->
                                     <div class="d-flex align-items-center">
                                         <!--begin::Amount-->
-                                        <span class="fs-2hx fw-bolder text-dark me-2 lh-1">0</span>
+                                        <span class="fs-2hx fw-bolder text-dark me-2 lh-1">10</span>
                                         <!--end::Amount-->
                                     </div>
                                     <!--end::Info-->
                                     <!--begin::Subtitle-->
-                                    <span class="text-gray-400 pt-1 fw-bold fs-2">{{ __('dashboard.projects') }}</span>
+                                    <span class="text-gray-400 pt-1 fw-bold fs-2">My Files</span>
                                     <!--end::Subtitle-->
                                 </div>
                                 <!--end::Title-->
                             </div>
                             <!--end::Header-->
                             <!--begin::Card body-->
-                            <div class="card-body pt-2 pb-4 d-flex align-items-center">
-                                <!--begin::Chart-->
-                                <div class="d-flex flex-center me-5 me-xxl-7 pt-2">
-                                    <div id="projects-chart" style="min-width: 70px; min-height: 70px" data-kt-size="70"
-                                        data-kt-line="11"></div>
-                                </div>
-                                <!--end::Chart-->
-                                <!--begin::Labels-->
-                                <div class="d-flex flex-column content-justify-center">
-                                    <!--begin::Label-->
-                                    <div class="d-flex fs-6 fw-bold align-items-center">
-                                        <!--begin::Bullet-->
-                                        <div class="bullet w-8px h-6px rounded-2 bg-success me-3"></div>
-                                        <!--end::Bullet-->
-                                        <!--begin::Label-->
-                                        <div class="text-gray-500 pe-1">{{ __('dashboard.active') }}</div>
-                                        <!--end::Label-->
-                                        <!--begin::Stats-->
-                                        <div class="ms-auto fw-boldest text-gray-700 min-w-70px text-end">
-                                            0</div>
-                                        <!--end::Stats-->
-                                    </div>
-                                    <!--end::Label-->
-                                    <!--begin::Label-->
-                                    <div class="d-flex fs-6 fw-bold align-items-center my-3">
-                                        <!--begin::Bullet-->
-                                        <div class="bullet w-8px h-6px rounded-2 bg-danger me-3"></div>
-                                        <!--end::Bullet-->
-                                        <!--begin::Label-->
-                                        <div class="text-gray-500 pe-1">{{ __('dashboard.inactive') }}</div>
-                                        <!--end::Label-->
-                                        <!--begin::Stats-->
-                                        <div class="ms-auto fw-boldest text-gray-700 min-w-70px text-end">
-                                            0</div>
-                                        <!--end::Stats-->
-                                    </div>
-                                    <!--end::Label-->
-                                </div>
-                                <!--end::Labels-->
-                            </div>
+
                             <!--end::Card body-->
                         </div>
                         <!--end::Card widget 4-->
@@ -86,58 +47,19 @@
                                     <!--begin::Info-->
                                     <div class="d-flex align-items-center">
                                         <!--begin::Amount-->
-                                        <span class="fs-2hx fw-bolder text-dark me-2 lh-1">0</span>
+                                        <span class="fs-2hx fw-bolder text-dark me-2 lh-1">6</span>
                                         <!--end::Amount-->
                                     </div>
                                     <!--end::Info-->
                                     <!--begin::Subtitle-->
-                                    <span class="text-gray-400 pt-1 fw-bold fs-2">دراسات متأخرة</span>
+                                    <span class="text-gray-400 pt-1 fw-bold fs-2">My Medical Consultations</span>
                                     <!--end::Subtitle-->
                                 </div>
                                 <!--end::Title-->
                             </div>
                             <!--end::Header-->
                             <!--begin::Card body-->
-                            <div class="card-body pt-2 pb-4 d-flex align-items-center">
-                                <!--begin::Chart-->
-                                <div class="d-flex flex-center me-5 me-xxl-7 pt-2">
-                                    <div id="features-chart" style="min-width: 70px; min-height: 70px" data-kt-size="70"
-                                        data-kt-line="11"></div>
-                                </div>
-                                <!--end::Chart-->
-                                <!--begin::Labels-->
-                                <div class="d-flex flex-column content-justify-center">
-                                    <!--begin::Label-->
-                                    <div class="d-flex fs-6 fw-bold align-items-center">
-                                        <!--begin::Bullet-->
-                                        <div class="bullet w-8px h-6px rounded-2 bg-success me-3"></div>
-                                        <!--end::Bullet-->
-                                        <!--begin::Label-->
-                                        <div class="text-gray-500 pe-1">{{ __('dashboard.active') }}</div>
-                                        <!--end::Label-->
-                                        <!--begin::Stats-->
-                                        <div class="ms-auto fw-boldest text-gray-700 min-w-70px text-end">
-                                            0</div>
-                                        <!--end::Stats-->
-                                    </div>
-                                    <!--end::Label-->
-                                    <!--begin::Label-->
-                                    <div class="d-flex fs-6 fw-bold align-items-center my-3">
-                                        <!--begin::Bullet-->
-                                        <div class="bullet w-8px h-6px rounded-2 bg-danger me-3"></div>
-                                        <!--end::Bullet-->
-                                        <!--begin::Label-->
-                                        <div class="text-gray-500 pe-1">{{ __('dashboard.inactive') }}</div>
-                                        <!--end::Label-->
-                                        <!--begin::Stats-->
-                                        <div class="ms-auto fw-boldest text-gray-700 min-w-70px text-end">
-                                            0</div>
-                                        <!--end::Stats-->
-                                    </div>
-                                    <!--end::Label-->
-                                </div>
-                                <!--end::Labels-->
-                            </div>
+
                             <!--end::Card body-->
                         </div>
                         <!--end::Card widget 5-->
@@ -152,12 +74,12 @@
                                     <!--begin::Info-->
                                     <div class="d-flex align-items-center">
                                         <!--begin::Amount-->
-                                        <span class="fs-2hx fw-bolder text-dark me-2 lh-1">0</span>
+                                        <span class="fs-2hx fw-bolder text-dark me-2 lh-1">30</span>
                                         <!--end::Amount-->
                                     </div>
                                     <!--end::Info-->
                                     <!--begin::Subtitle-->
-                                    <span class="text-gray-400 pt-1 fw-bold fs-2">دراسات قائمة
+                                    <span class="text-gray-400 pt-1 fw-bold fs-2">My Appointments
 
                                     </span>
                                     <!--end::Subtitle-->
@@ -233,28 +155,19 @@
                                     <!--begin::Info-->
                                     <div class="d-flex align-items-center">
                                         <!--begin::Amount-->
-                                        <span class="fs-2hx fw-bolder text-dark me-2 lh-1">0</span>
+                                        <span class="fs-2hx fw-bolder text-dark me-2 lh-1">7</span>
                                         <!--end::Amount-->
                                     </div>
                                     <!--end::Info-->
                                     <!--begin::Subtitle-->
-                                    <span class="text-gray-400 pt-1 fw-bold fs-2">دراسات متأخرة</span>
+                                    <span class="text-gray-400 pt-1 fw-bold fs-2">My Urgent Appoinments</span>
                                     <!--end::Subtitle-->
                                 </div>
                                 <!--end::Title-->
                             </div>
                             <!--end::Header-->
                             <!--begin::Card body-->
-                            <div class="card-body d-flex align-items-end pt-0">
-                                <!--begin::Progress-->
-                                <div class="d-flex align-items-center flex-column mt-3 w-100">
-                                    <div class="h-8px mx-3 w-100 bg-light-success rounded">
-                                        <div class="bg-success rounded h-8px" role="progressbar" style="width: 100%;"
-                                            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <!--end::Progress-->
-                            </div>
+
                             <!--end::Card body-->
                         </div>
                         <!--end::Card widget 5-->
@@ -265,7 +178,7 @@
                             <div class="card-header pt-7">
                                 <!--begin::Title-->
                                 <h3 class="card-title align-items-start flex-column">
-                                    <span class="card-label fw-bolder text-dark">{{ __('contacts.title') }}</span>
+                                    <span class="card-label fw-bolder text-dark">Next 5 Appointment</span>
                                 </h3>
                                 <!--end::Title-->
                             </div>
@@ -273,26 +186,57 @@
                             <!--begin::Body-->
                             <div class="card-body pt-5">
                                 <!--begin::Table-->
-                                <table class="table align-middle table-row-dashed table-hover fs-6 gy-5"
-                                    id="contact_table">
+                                <table class="table align-middle table-row-dashed table-hover fs-6 gy-5" id="contact_table">
                                     <!--begin::Table head-->
                                     <thead>
                                         <!--begin::Table row-->
                                         <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-                                            <th>#</th>
-                                            <th>{{ __('contacts.name') }}</th>
-                                            <th>{{ __('contacts.email') }}</th>
-                                            <th>{{ __('contacts.message') }}</th>
-                                            <th>{{ __('contacts.status') }}</th>
-                                            <th>{{ __('contacts.sent_at') }}</th>
-                                            <th>{{ __('contacts.actions') }}</th>
+                                            <th class="min-w-125px">#</th>
+                                            <th class="min-w-125px">Appoinment Day</th>
+                                            <th class="min-w-125px">Appoinment Date</th>
+                                            <th class="min-w-125px">Appoinment Time</th>
+                                            <th class="min-w-125px">Doctor</th>
+                                            <th class="min-w-125px">Added At</th>
                                         </tr>
                                         <!--end::Table row-->
                                     </thead>
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
                                     <tbody class="text-gray-600 fw-bold">
+                                        @foreach ($appoinments as $appoinment)
+                                            <!--begin::Table row-->
+                                            <tr>
+                                                <!--begin::Checkbox-->
+                                                <td>
+                                                    {{ $loop->iteration + ((request()->page ?? 1) - 1) * 10 }}
+                                                </td>
+                                                <!--end::Checkbox-->
+                                                <!--begin::User=-->
+                                                <td class="d-flex align-items-center">
+                                                    <!--begin:: Avatar -->
 
+                                                    <!--end::Avatar-->
+                                                    <!--begin::User details-->
+                                                    <div class="d-flex flex-column">
+                                                        {{ date('l', strtotime($appoinment->appointment_date)) }}
+                                                    </div>
+                                                    <!--begin::User details-->
+                                                </td>
+                                                <!--end::User=-->
+                                                <td>{{ $appoinment->appointment_date }}</td>
+                                                <td>{{ $appoinment->appointment_time }}</td>
+                                                <td>{{ $appoinment->doctor->name }}</td>
+
+                                                <!--begin::Joined-->
+
+                                                <td>{{ $appoinment->created_at->format('Y-m-d h:i a') }}</td>
+                                                <!--begin::Joined-->
+                                                <!--begin::Action=-->
+
+                                                <!--end::Action=-->
+                                            </tr>
+                                            <!--end::Table row-->
+                                        @endforeach
                                     </tbody>
                                     <!--end::Table body-->
                                 </table>
