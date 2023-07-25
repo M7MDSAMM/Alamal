@@ -49,6 +49,7 @@
                                             <input type="date" class="form-control" id="date_of_birth"
                                                 name="date_of_birth" required>
                                         </div>
+                                        
                                         <div class="mb-3">
                                             <label for="doctor" class="form-label">Doctor</label>
                                             <select class="form-select" id="doctor" name="doctor" required>

@@ -29,11 +29,13 @@ class UpdatePatientRequest extends FormRequest
             'phone_number' => 'required|string|max:20',
             'gender' => 'required|in:male,female',
             'date_of_birth' => 'required|date',
-            'doctor' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'section' => 'required|string|max:255',
             'degrees_of_severity' => 'required|string|max:255',
             'diagnosis' => 'required|string|max:255',
+
+            'doctor' => 'nullable|string|max:255',
+
         ];
     }
 }

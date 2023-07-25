@@ -79,10 +79,11 @@ class PatientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show($id)
     {
         //
-
+        $patient = User::findOrFail($id);
+        return response()->view('dashboard.patient.show',compact('patient'));
     }
 
     /**
@@ -126,7 +127,13 @@ class PatientController extends Controller
         $user->phone_number = $request->validated('phone_number');
         $user->date_of_birth = $request->validated('date_of_birth');
         $user->diagnosis = $request->validated('diagnosis');
+        if(auth()->user()->type != 'doctor'){
         $user->doctor_id = $request->get('doctor');
+
+        }else{
+        $user->doctor_id = auth()->user()->id;
+
+        }
         // Handle the main_patient_file update if provided
         if ($request->hasFile('main_patient_file')) {
             $file = $request->file('main_patient_file');

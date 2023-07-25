@@ -19,7 +19,7 @@ class PatientAppoinmentController extends Controller
         //
         $currentDate = Carbon::today()->toDateString();
 
-        $appoinments = PatientAppoinment::orderBy('appointment_date', 'desc')
+        $appoinments = PatientAppoinment::where('type','Normal')->orWhere('status','accepted')->orderBy('appointment_date', 'desc')
         ->orderBy('appointment_time', 'desc')
         ->paginate(10);
 

@@ -42,6 +42,8 @@
                         </div>
                         <!--begin::Card title-->
                         <!--begin::Card toolbar-->
+                        @if(auth()->user()->type != 'doctor')
+                            
                         <div class="card-toolbar">
                             <!--begin::Toolbar-->
                             <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
@@ -63,6 +65,8 @@
                                 <!--end::Add user-->
                             </div>
                         </div>
+                        @endif
+
                         <!--end::Card toolbar-->
                     </div>
                     <!--end::Card header-->
@@ -79,7 +83,11 @@
                                     <th class="min-w-125px">Gender</th>
                                     <th class="min-w-125px">Age</th>
                                     <th class="min-w-125px">Degrees of Severity</th>
+                                    @if(auth()->user()->type != 'doctor')
+                                        
                                     <th class="min-w-125px">Doctor</th>
+                                    @endif
+
                                     <th class="min-w-125px">{{ __('admins.join_date') }}</th>
                                     <th class="text-end min-w-100px">{{ __('admins.actions') }}</th>
                                 </tr>
@@ -103,7 +111,7 @@
                                             <!--end::Avatar-->
                                             <!--begin::User details-->
                                             <div class="d-flex flex-column">
-                                                <a href="{{ route('doctors.show', $patient) }}"
+                                                <a href="{{ route('patients.show', $patient) }}"
                                                     class="text-gray-800 text-hover-primary mb-1">{{ $patient->name }}</a>
                                                 <span>{{ $patient->email }}</span>
                                             </div>
@@ -144,8 +152,10 @@
 
                                         <!--end::Last login=-->
                                         <!--begin::Joined-->
-                                        <td>{{ $patient->doctor->name }}</td>
+                                    @if(auth()->user()->type != 'doctor')
 
+                                        <td>{{ $patient->doctor->name }}</td>
+                                        @endif
                                         <td>{{ $patient->created_at->format('Y-m-d h:i a') }}</td>
                                         <!--begin::Joined-->
                                         <!--begin::Action=-->

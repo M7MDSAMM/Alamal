@@ -72,8 +72,11 @@
                                     <th class="min-w-125px">Appoinment Day</th>
                                     <th class="min-w-125px">Appoinment Date</th>
                                     <th class="min-w-125px">Appoinment Time</th>
+                                    <th class="min-w-125px">Type</th>
                                     <th class="min-w-125px">Patient</th>
+                                    @if(auth()->user()->type != 'doctor')
                                     <th class="min-w-125px">Doctor</th>
+                                    @endif
                                     <th class="min-w-125px">Added At</th>
                                     <th class="min-w-130px">{{ __('admins.actions') }}</th>
                                 </tr>
@@ -104,9 +107,12 @@
                                         <!--end::User=-->
                                         <td>{{ $appoinment->appointment_date }}</td>
                                         <td>{{ $appoinment->appointment_time }}</td>
+                                        <td>{{ $appoinment->type }}</td>
                                         <td>{{ $appoinment->patient->name }}</td>
-                                        <td>{{ $appoinment->doctor->name }}</td>
+                                    @if(auth()->user()->type != 'doctor')
 
+                                        <td>{{ $appoinment->doctor->name }}</td>
+                                        @endif
                                         <!--begin::Joined-->
 
                                         <td>{{ $appoinment->created_at->format('Y-m-d h:i a') }}</td>

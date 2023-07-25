@@ -14,6 +14,7 @@ use App\Http\Controllers\PatientAppoinmentController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PatientFileController;
 use App\Http\Controllers\ReceptionController;
+use App\Http\Controllers\UrgentAppoinmentsController;
 use App\Http\Controllers\User\Auth\UserLoginController;
 use App\Http\Controllers\User\Dashboard\PatientDashboardController;
 use Illuminate\Support\Facades\Http;
@@ -39,7 +40,7 @@ Route::post('contact',[ContactController::class , 'store'])->name('contact.store
 
 Route::view('/test', 'dashboard.temp');
 
-Route::redirect("/", 'login', 301);
+Route::redirect("/", 'home', 301);
 
 Route::middleware('guest')->group(function () {
     Route::prefix('/login')->controller(LoginController::class)->group(function () {
@@ -64,6 +65,11 @@ Route::middleware(['auth', 'locale'])->prefix('/dashboard')->group(function () {
     // Route::middleware('auth')->prefix('/dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
+
+
+    Route::get('/appoinments/urgents/requests',[UrgentAppoinmentsController::class,'index'])->name('urgents.requests.index');
+    Route::put('/appoinments/urgents/accept/{PatientAppoinment}',[UrgentAppoinmentsController::class,'accept'])->name('urgents.accept');
+    Route::put('/appoinments/urgents/refuse/{PatientAppoinment}',[UrgentAppoinmentsController::class,'refuse'])->name('urgents.refuse');
     Route::resource('reception/employees',ReceptionController::class);
     Route::resource('doctor/managers',DoctorManagerController::class);
     Route::resource('doctors',DoctorController::class);

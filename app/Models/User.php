@@ -45,4 +45,12 @@ class User extends Authenticatable
     public function doctor() {
         return $this->belongsTo(Admin::class,'doctor_id','id');
     }
+
+    public function files() {
+        return $this->hasMany(PatientFile::class,'patient_id','id');
+    }
+
+    public function appoinments() {
+        return $this->hasMany(PatientAppoinment::class,'patient_id','id');
+    }
 }

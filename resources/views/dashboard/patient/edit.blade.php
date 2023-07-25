@@ -49,32 +49,37 @@
                                             <input type="date" value="{{ $user->date_of_birth }}" class="form-control"
                                                 id="date_of_birth" name="date_of_birth" required>
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="doctor" class="form-label">Doctor</label>
-                                            <select class="form-select" id="doctor" name="doctor" required>
-                                                <option @selected($user->doctor_id == $user->doctor->id)  value="{{ $user->doctor_id }}">{{ $user->doctor->name }}</option>
-                                                @foreach ($doctors as $doctor)
-                                                    <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
-                                                @endforeach
+                                        @if (auth()->user()->type != 'doctor')
+                                            <div class="mb-3">
+                                                <label for="doctor" class="form-label">Doctor</label>
+                                                <select class="form-select" id="doctor" name="doctor" required>
+                                                    <option @selected($user->doctor_id == $user->doctor->id) value="{{ $user->doctor_id }}">
+                                                        {{ $user->doctor->name }}</option>
+                                                    @foreach ($doctors as $doctor)
+                                                        <option value="{{ $doctor->id }}">{{ $doctor->name }}</option>
+                                                    @endforeach
 
-                                            </select>
-                                        </div>
+                                                </select>
+                                            </div>
+                                        @endif
+
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label for="email" class="form-label">Email</label>
-                                            <input type="email" class="form-control" value="{{ $user->email }}" id="email" name="email"
-                                                required>
+                                            <input type="email" class="form-control" value="{{ $user->email }}"
+                                                id="email" name="email" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="main_patient_file" class="form-label">Main Patient File</label>
-                                            <input type="file"  class="form-control" id="main_patient_file"
+                                            <input type="file" class="form-control" id="main_patient_file"
                                                 name="main_patient_file">
                                         </div>
                                         <div class="mb-3">
                                             <label for="section" class="form-label">Section</label>
                                             <select class="form-select" id="section" name="section" required>
-                                                <option value="{{ $user->section }}" selected>{{ $user->section }}</option>
+                                                <option value="{{ $user->section }}" selected>{{ $user->section }}
+                                                </option>
                                                 <option value="unclassified">Unclassified</option>
                                                 <option value="Oncology">Oncology</option>
                                                 <option value="Radiation Oncology">Radiation Oncology</option>
@@ -88,7 +93,8 @@
                                                 Severity</label>
                                             <select class="form-select" id="degrees_of_severity" name="degrees_of_severity"
                                                 required>
-                                                <option value="{{ $user->degrees_of_severity }}">{{ $user->degrees_of_severity }}</option>
+                                                <option value="{{ $user->degrees_of_severity }}">
+                                                    {{ $user->degrees_of_severity }}</option>
                                                 <option value="Mild">Mild</option>
                                                 <option value="Moderate">Moderate</option>
                                                 <option value="Severe">Severe</option>
@@ -96,8 +102,8 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="diagnosis" class="form-label">Diagnosis</label>
-                                            <input type="text" value="{{ $user->diagnosis }}" class="form-control" id="diagnosis" name="diagnosis"
-                                                required>
+                                            <input type="text" value="{{ $user->diagnosis }}" class="form-control"
+                                                id="diagnosis" name="diagnosis" required>
                                         </div>
 
 
@@ -135,14 +141,18 @@
             formData.append('phone_number', document.getElementById('phone_number').value);
             formData.append('gender', document.getElementById('gender').value);
             formData.append('date_of_birth', document.getElementById('date_of_birth').value);
-            formData.append('doctor', document.getElementById('doctor').value);
+            @if (auth()->user()->type != 'doctor')
+
+                formData.append('doctor', document.getElementById('doctor').value);
+            @endif
+
             formData.append('email', document.getElementById('email').value);
             formData.append('section', document.getElementById('section').value);
             formData.append('degrees_of_severity', document.getElementById('degrees_of_severity').value);
             formData.append('diagnosis', document.getElementById('diagnosis').value);
-            let url = '{{ route('patients.update',$user->id) }}';
+            let url = '{{ route('patients.update', $user->id) }}';
             // console.log(formData);
-            post(url, formData, 'submit-btn', '{{ route('patients.edit',$user->id) }}');
+            post(url, formData, 'submit-btn', '{{ route('patients.edit', $user->id) }}');
         }
     </script>
 
