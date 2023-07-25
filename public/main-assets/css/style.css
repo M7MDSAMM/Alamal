@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Almarai', sans-serif;
+}
+.logo{
+    width: 60px;
+}
+.active {
+    color: #aff039 !important;
+}
+.sticky-top{
+    background: #3657a6;
+}
+.navbar-nav {
+    width: 100% ;
+    justify-content: flex-end;
+}
+.nav-link:focus {
+    color: white;
+}
+.navbar-nav a {
+    color: white;
+    font-weight: 700;
+    transition: 0.3s;
+}
+.navbar-nav a:hover {
+    color: #aff039
+}
+.landing {
+    min-height: 100vh;
+    background-image: url(../image/landing.png);
+    background-size: cover;
+    position: relative;
+}
+.classification .bg{
+    background: #3657a6;
+}
+.classification-section {
+    position: relative;
+    top: -100px;
+}
+.classification .row .bg{
+    padding: 40px;
+}
+.classification .row .bg:nth-child(2) {
+    background-color: #aff039;
+}
+.content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.content:first-child h1 {
+    font-size: 55px !important;
+}
+.cont {
+    width: 110px;
+    height: 40px;
+    color: white;
+    background: #aff039;
+    text-align: center;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.cont a {
+    color: white;
+    text-decoration: none;
+    line-height: 2.5;
+    padding: 5px;
+}
+.cont:hover {
+    background:#3657a6;
+}
+.section3 {
+    background: #3657a6;
+    color: white;
+}
+.section3 h1 {
+    margin-bottom: 0 !important;
+    color: #aff039;
+}
+.reasons i {
+    color: #3657a6;
+}
+@media (max-width: 768px) {
+    .section1,
+    .reasons,
+    .abut-cancer,
+    .sym,
+    .nutr{
+        text-align: center;
+    }
+    .continue{
+        display: flex;
+        justify-content: center;
+    }
+}
+footer {
+    background: #3657a6;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+.sym h2,
+.sym h4,
+.nutr h2,
+.nutr h4,
+.awar h2,
+.abut-cancer h3,
+.awar h4 {
+    border-bottom: 1px solid #aff039;
+}
+form input[type="text"],
+input[type="email"],
+input[type="number"] {
+    height: 50px;
+    padding-right: 20px;
+}
+form textarea {
+    padding: 20px;
+}
+form .btn {
+    background: #aff039;
+    color: white;
+    padding: 5px 30px;
+    transition: 0.3s;
+    height: 50px;
+}
+form .btn:hover{
+    background-color: #3657a6;
+    color: white;
+}
+@media (max-width: 768px) {
+    form .btn  {
+        width: 100%;
+    }
+}
+
+/* loading */
+/* .loading {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: #3657a6;
+    position: fixed;
+    z-index: 9999;
+} */
+
+/* .lds-default {
+    height: 100px;
+    width: 100px;
+    border: 15px solid #45474b;
+    border-top-color: white;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    z-index: 9999;
+    animation: spin 1.5s infinite linear;
+} */
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* end loading */
+.up {
+    position: fixed;
+    bottom: 30px;
+    width: 40px;
+    height: 40px;
+    right: -50px;
+    background-color: #3657a6;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+.up.show {
+    right: 30px;
+}
+@media (max-width: 768px) {
+    .up {
+        display: none;
+    }
+}

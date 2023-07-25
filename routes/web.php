@@ -3,11 +3,13 @@
 use App\Http\Controllers\Auth\AccountController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Dashboard\AdminController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\DoctorManagerController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PatientAppoinmentController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PatientFileController;
@@ -27,7 +29,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('home',[HomeController::class , 'main'])->name('home');
+Route::get('about-cancer',[HomeController::class,'about'])->name('about');
+Route::get('nutrition',[HomeController::class,'nutrition'])->name('nutrition');
+Route::get('awareness',[HomeController::class,'awareness'])->name('awareness');
+Route::get('contact-us',[HomeController::class,'contact'])->name('contact');
+Route::get('symptoms',[HomeController::class,'symptoms'])->name('symptoms');
+Route::post('contact',[ContactController::class , 'store'])->name('contact.store');
 
 Route::view('/test', 'dashboard.temp');
 
@@ -102,6 +110,7 @@ Route::middleware(['auth:user', 'locale'])->prefix('/patient/dashboard')->group(
     Route::get('/logout', [UserLoginController::class, 'logout'])->name('users.logout');
 
 });
+
 
 
 
