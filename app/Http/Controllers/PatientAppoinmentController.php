@@ -19,8 +19,12 @@ class PatientAppoinmentController extends Controller
         //
         $currentDate = Carbon::today()->toDateString();
 
-        $appoinments = PatientAppoinment::where('type','Normal')->orWhere('status','accepted')->orderBy('appointment_date', 'desc')
-        ->orderBy('appointment_time', 'desc')
+        $appoinments = PatientAppoinment::where('type', 'Normal')
+        ->where('doctor_id', auth()->user()->id)
+        ->where('appointment_date', '>=', $currentDate)
+        ->orWhere('status', 'accepted')
+        ->orderBy('appointment_date', 'asc')
+        ->orderBy('appointment_time', 'asc')
         ->paginate(10);
 
         return response()->view('dashboard.patient_appoinments.index',compact('appoinments'));

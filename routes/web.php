@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AccountController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\ConsultationContoller;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Dashboard\AdminController;
 use App\Http\Controllers\Dashboard\DashboardController;
@@ -66,7 +67,7 @@ Route::middleware(['auth', 'locale'])->prefix('/dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
 
-
+    Route::resource('consultations' ,ConsultationContoller::class);
     Route::get('/appoinments/urgents/requests',[UrgentAppoinmentsController::class,'index'])->name('urgents.requests.index');
     Route::put('/appoinments/urgents/accept/{PatientAppoinment}',[UrgentAppoinmentsController::class,'accept'])->name('urgents.accept');
     Route::put('/appoinments/urgents/refuse/{PatientAppoinment}',[UrgentAppoinmentsController::class,'refuse'])->name('urgents.refuse');

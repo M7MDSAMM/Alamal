@@ -171,29 +171,28 @@
                     <span class="menu-title">Patients</span>
                 </a>
             </div>
-            @if(auth()->user()->type != 'doctor')
-
-            <div class="menu-item">
-                <a class="menu-link {{ in_array(Route::currentRouteName(), ['patients.create']) ? 'active' : '' }}"
-                    href="{{ route('patients.create') }}">
-                    <span class="menu-icon">
-                        <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
-                        <span class="svg-icon svg-icon-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24" />
-                                    <path
-                                        d="M5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z"
-                                        fill="#000000" />
-                                </g>
-                            </svg>
+            @if (auth()->user()->type != 'doctor')
+                <div class="menu-item">
+                    <a class="menu-link {{ in_array(Route::currentRouteName(), ['patients.create']) ? 'active' : '' }}"
+                        href="{{ route('patients.create') }}">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
+                            <span class="svg-icon svg-icon-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect x="0" y="0" width="24" height="24" />
+                                        <path
+                                            d="M5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z"
+                                            fill="#000000" />
+                                    </g>
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->
                         </span>
-                        <!--end::Svg Icon-->
-                    </span>
-                    <span class="menu-title">Add New Patient</span>
-                </a>
-            </div>
+                        <span class="menu-title">Add New Patient</span>
+                    </a>
+                </div>
             @endif
 
     @endif
@@ -351,75 +350,107 @@
         </div>
     @endif
 
-    @if(auth()->user()->type == 'doctor')
-    <div class="menu-item">
-        <div class="menu-content pt-8 pb-2">
-            <span class="menu-section text-muted text-uppercase fs-8 ls-1">Appointments</span>
+    @if (auth()->user()->type == 'doctor')
+        <div class="menu-item">
+            <div class="menu-content pt-8 pb-2">
+                <span class="menu-section text-muted text-uppercase fs-8 ls-1">Appointments</span>
+            </div>
         </div>
-    </div>
-    <div class="menu-item">
-        <a class="menu-link {{ in_array(Route::currentRouteName(), ['appoinments.index', 'appoinments.index']) ? 'active' : '' }}"
-            href="{{ route('appoinments.index') }}">
-            <span class="menu-icon">
-                <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
-                <span class="svg-icon svg-icon-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24" />
-                            <path
-                                d="M5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z"
-                                fill="#000000" />
-                        </g>
-                    </svg>
+        <div class="menu-item">
+            <a class="menu-link {{ in_array(Route::currentRouteName(), ['appoinments.index', 'appoinments.index']) ? 'active' : '' }}"
+                href="{{ route('appoinments.index') }}">
+                <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <rect x="0" y="0" width="24" height="24" />
+                                <path
+                                    d="M5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z"
+                                    fill="#000000" />
+                            </g>
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
                 </span>
-                <!--end::Svg Icon-->
-            </span>
-            <span class="menu-title">Patients Appoinments</span>
-        </a>
-    </div>
-    <div class="menu-item">
-        <a class="menu-link {{ in_array(Route::currentRouteName(), ['urgents.requests.index', 'urgents.requests.index']) ? 'active' : '' }}"
-            href="{{ route('urgents.requests.index') }}">
-            <span class="menu-icon">
-                <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
-                <span class="svg-icon svg-icon-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24" />
-                            <path
-                                d="M5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z"
-                                fill="#000000" />
-                        </g>
-                    </svg>
+                <span class="menu-title">Patients Appoinments</span>
+            </a>
+        </div>
+        <div class="menu-item">
+            <a class="menu-link {{ in_array(Route::currentRouteName(), ['urgents.requests.index', 'urgents.requests.index']) ? 'active' : '' }}"
+                href="{{ route('urgents.requests.index') }}">
+                <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <rect x="0" y="0" width="24" height="24" />
+                                <path
+                                    d="M5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z"
+                                    fill="#000000" />
+                            </g>
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
                 </span>
-                <!--end::Svg Icon-->
-            </span>
-            <span class="menu-title">Urgent Appoinments</span>
-        </a>
-    </div>
-    <div class="menu-item">
-        <a class="menu-link {{ in_array(Route::currentRouteName(), ['appoinments.create', 'appoinments.create']) ? 'active' : '' }}"
-            href="{{ route('appoinments.create') }}">
-            <span class="menu-icon">
-                <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
-                <span class="svg-icon svg-icon-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24" />
-                            <path
-                                d="M5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z"
-                                fill="#000000" />
-                        </g>
-                    </svg>
+                <span class="menu-title">Urgent Appoinments</span>
+            </a>
+        </div>
+        <div class="menu-item">
+            <a class="menu-link {{ in_array(Route::currentRouteName(), ['appoinments.create', 'appoinments.create']) ? 'active' : '' }}"
+                href="{{ route('appoinments.create') }}">
+                <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <rect x="0" y="0" width="24" height="24" />
+                                <path
+                                    d="M5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z"
+                                    fill="#000000" />
+                            </g>
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
                 </span>
-                <!--end::Svg Icon-->
-            </span>
-            <span class="menu-title">Add New Appoinment</span>
-        </a>
-    </div>
+                <span class="menu-title">Add New Appoinment</span>
+            </a>
+        </div>
+
+
+        <div class="menu-item">
+            <div class="menu-content pt-8 pb-2">
+                <span class="menu-section text-muted text-uppercase fs-8 ls-1">Consultation</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <a class="menu-link {{ in_array(Route::currentRouteName(), ['consultations.index']) ? 'active' : '' }}"
+                href="{{ route('consultations.index') }}">
+                <span class="menu-icon">
+                    <!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <rect x="0" y="0" width="24" height="24" />
+                                <path
+                                    d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z"
+                                    fill="#000000" opacity="0.3" />
+                                <path
+                                    d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z"
+                                    fill="#000000" />
+                            </g>
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                </span>
+                <span class="menu-title">Patients Consultation</span>
+            </a>
+        </div>
     @endif
 
 
